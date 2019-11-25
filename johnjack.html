@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function makeDumpling (i) {
+			var dumpling = document.createElement("div");
+			document.body.appendChild(dumpling);
+			dumpling.style.width = "230px";
+			dumpling.style.height ="230px";
+			dumpling.style.backgroundColor = "silver";
+			dumpling.style.margin = "1px"
+			dumpling.style.backgroundSize ="contain" ;
+			dumpling.style.backgroundRepeat = "no-repeat" ;
+			dumpling.style.background = "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC5S4h-l2haB-CsKrdhCV_XH29YjMBBzojJyaKiPAF3W3ZK6DH&s)";
+			dumpling.innerText = "dumpling" + i;
+			dumpling.addEventListener("click", function(event) {console.log(dumpling.style)})
+
+		}
+		for (var i = 0; i<25; i++) {
+			makeDumpling(i)}
+		</script>
+		
+		
+
+</body>
+</html>
