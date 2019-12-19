@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        h1{
+            font-family:;
+            font-size:;
+            color:;
+        }
+
+        p{
+            font-family: courier;
+            font-size:;
+            color:;
+        }
+
+        #container{
+            width:500px;
+            height:500px;
+/*            border:black solid 1px;
+*/        }
+
+#box0{background-color:aqua;}
+#box1{background-color:lightcyan;}
+#box2{background-color:paleturquoise;}
+#box3{background-color:aquamarine;}
+#box4{background-color:turquoise;}
+#box5{background-color:mediumturquoise;}
+#box6{background-color:darkturquoise;}
+#box7{background-color:cadetblue;}
+#box8{background-color:steelblue;}
+#box9{background-color:lightsteelblue;}
+#box10{background-color:powderblue;}
+#box11{background-color:lightblue;}
+#box12{background-color:skyblue;}
+#box13{background-color:lightskyblue;}
+#box14{background-color:deepskyblue;}
+#box15{background-color:dodgerblue;}
+#box16{background-color:cornflowerblue;}
+#box17{background-color:royalblue;}
+#box18{background-color:blue;}
+#box19{background-color:mediumblue;}
+#box20{background-color:darkblue;}
+#box21{background-color:navy;}
+#box22{background-color:midnightblue;}
+#box23{background-color:slategray;}
+#box24{background-color:darkslategray;}
+#box25{background-color:black;}
+</style>
+</head>
+
+<body>
+    <h1>
+        <!-- If you'd like a title, erase this text and feel free to put your title here! In the style section, in the curly brackets called "h1," put in the font style and font size you want -->
+        <h1>
+            <br><br>
+            <p> Lights out <p>
+                    <div id="container"></div>
+                    <script type="text/javascript">
+                    //For all of your media, to use this, label each file  with numbers (eg.1.jpg, 2.jpg) and keep them in the same folder as this html file. If they are not jpgs, change the extension "jpg" in the recipe below (line 25) to whatever file type they are.  
+
+                    //Below is the recipe to make the squares appear on the page//
+
+   var array2 = [];
+
+                    function lightsOut(x) {
+                        console.log(x, x + 1, x - 1, x + 5, x - 5)
+                        array2.push(x, x + 1, x - 1, x + 5, x - 5);
+                        for (var i = 0; i < array2.length; i++) {
+                            array2[i] = "box" + array2[i];
+                        }
+                        console.log(array2);
+
+
+                    var array = [];
+                    var container = document.getElementById('container');
+
+                    function makeSquare(i) {
+
+                        var square = document.createElement('div');
+                        container.appendChild(square);
+                        square.style.width = "100px";
+                        square.style.height = "100px";
+                        square.style.display = "inline-block";
+                        square.style.margin = "0px";
+                        square.id = "box" + i;
+                        square.style.backgroundRepeat = "no-repeat";
+                        // square.style.border = "1px";
+                        // square.style.backgroundColor = "green";
+                        square.innerText = "box" + i;
+                        square.addEventListener("click", 
+
+                            function(){
+                                console.log(square.id)
+                                lightsOut();}
+                                )
+                        // square.style.border="1px solid black"
+                        array.push(i);
+
+
+
+                        square.style.backgroundSize = "contain";
+                    }
+                    for (var i = 0; i < 25; i = i + 1) {
+                        makeSquare(i)
+
+                    };
+
+
+                    //Looking to refer to all squares adjacent to a singular square, and adding the string "box" to every element that is pushed into the array to be referred to
+
+
+                    
+
+                        // array2.forEach(element => function makeVariable() {var array2[1] = element;
+
+                        // });
+
+
+                    }
+
+                    lightsOut(6);
+
+                    // function() 
+                    // {var x = array2[0];
+                    // document.getElementById(x).style.backgroundColor="black"}
+
+
+
+
+                    // Our big question right now
+                    //     what is a grid?
+                    //     how do we define an edge?
+                    //     is there a way to relate the squares to each other if they're inside square or edge square or corner square without individually going through and adding an event listener for each one and then just specifying all the other squares around it to silence.
+                    // Column difference between each square and the one below it is just row length, or in this case 5, for columns, the left edge is divisible by 5, and the right edge mod 5 is 4
+                    // Want to write a function that turns out everything as +1, -1, +5, and -5, for everything that is not the edges. Top edge is just anything <5
+
+
+                    // Here we are going to make an array (which is just a list) that holds data about every square that exists.
+
+
+
+
+
+                    // var counter0 = 0;
+                    // var counter1 = 0
+                    // var counter2 = 0
+                    // var coutner3 = 0
+
+
+                    //     box0.addEventListener("click", function() {
+                    //         counter0 = counter0 +1; 
+                    //         console.log(counter0)
+                    //         if (counter0%2 == 0){
+                    //         box0.style.backgroundColor="aqua";}
+                    //         if (counter%2 == 1){box0.style.backgroundColor ="silver"}
+
+                    //     })
+
+                    //         box1.addEventListener("click", function() {
+                    //         counter0 = counter0 +1; 
+                    //         console.log(counter0)
+                    //         if (counter0%2 == 0){
+                    //         box0.style.backgroundColor="aqua";}
+                    //         if (counter0%2 == 1){box0.style.backgroundColor="silver"}
+
+                    //     })
+
+
+
+                    // Michael wants to make a situation where when you click on a box it changes all of the boxes around it.
+
+                    //Below, is the for loop in which where the squares are actually made. This for loop is where the function above is actually called. It is called 14 times, (between the values of 0 and 15) and because the variable i is declared in the for loop and is then being passed to the makeSquare recipe, each time the function runs, i changes in value (+1). Thus, the attributes that involve the i change in value as well (eg. the id attribute changes to be whatever i was last time, plus 1.)//
+                    </script>
+</body>
+
+</html>
