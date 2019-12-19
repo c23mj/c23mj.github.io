@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+
+    <style>
+        input, button{
+            width:400px;
+            height:200px;
+            font-size:75px;
+            border:5px black solid;
+        }
+        button{
+            background-color:grey;
+            border-radius:10%;
+        }
+      
+        #imageThing{
+            width:400px;
+            height:300px;
+            background-size:contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border:solid black 1px;
+        }
+    </style>
+</head>
+
+<body>
+  
+    <button id="button">Roll a Die!</button>
+ 
+
+    <div id="imageThing"></div>
+<script type="text/javascript">
+
+var woosh = document.getElementById('button');
+var imageThing = document.getElementById("imageThing");
+
+var array = ["url(https://cdn.clipart.email/774e7817b016bfd9e7b7a0950049d134_dice-1-collection-67-_557-557.png)", "url(https://upload.wikimedia.org/wikipedia/commons/5/5f/Dice-2-b.svg)", "url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Dice-3-b.svg/240px-Dice-3-b.svg.png)", "url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Dice-4-b.svg/240px-Dice-4-b.svg.png)", "url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Dice-5-b.svg/1024px-Dice-5-b.svg.png)", "url(https://upload.wikimedia.org/wikipedia/commons/2/26/Dice-6-b.svg)"]
+woosh.addEventListener("click", function(){
+    var randomNumber = Math.round(Math.random()*6);
+    imageThing.style.backgroundImage = array[randomNumber];
+    console.log(randomNumber);
+});
+</script>
+
+</body>
+
+</html>
