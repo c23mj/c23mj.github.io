@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style>
+		.starlings{
+			width:100px;
+			height:150px;
+			background-size:contain;
+			background-repeat:no-repeat;
+			display:inline-block;
+		}
+
+		.invisible{
+			opacity:0;
+		}
+
+
+		
+	</style>
+</head>
+<body>
+
+	<div class="starlings"></div>
+
+	<script>
+	
+	function makeStarling () {
+		var starling = document.createElement("div");
+		document.body.appendChild(starling);
+		starling.classList.add("starlings");
+		starling.style.backgroundColor = 'rgb(' + Math.random() * 255 + "," + Math.random() * 255 + "," + Math.random() * 255 + ")";
+		starling.addEventListener("click", function(){
+		console.log("stop!")
+		starling.classList.add('invisible');
+
+	});
+
+		
+
+
+	};
+
+
+	makeStarling();
+	
+
+
+
+
+	for(var i=0; i<100; i=i+1){
+		makeStarling();
+	}
+
+	function arrayPush(){
+		var starlings = document.getElementsByClassName("starlings");
+	console.log(starlings)
+}
+
+arrayPush();
+</script>
+
+</body>
+</html>
