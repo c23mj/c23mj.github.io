@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	4613732! (check console)
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var x = 1; 
+		var y = 2;
+		var z = x+y;
+		var list = [];var evenArray = [];
+		list.push(x,y,z)
+		//the function takes original values and defines anew based on what they were.
+		function fibonacci(){
+			x = y;
+			y = z;
+			z= x+y;
+			list.push(z);
+		}
+		for (var i = 0; i < 29; i++) {
+			fibonacci();	
+		}
+		//for every value in the list, if it is even, push it into a new array
+		list.forEach(function(x) {
+			if (x % 2 == 0){
+				evenArray.push(x)
+			}
+		});
+		var answer = evenArray.reduce(function(accumulator, currentValue) {
+			return accumulator + currentValue
+		})
+		console.log(list)
+		console.log(evenArray);
+		console.log(answer);
+	</script>
+
+</body>
+</html>
